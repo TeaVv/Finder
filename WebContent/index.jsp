@@ -366,31 +366,115 @@
 				</div>
 				<div style="padding: 5px;">
 					<div class="modal-body">
-						<div class="row" style="height: 300px">
+						<div class="row" style="height: 100%">
 							<div class="col-lg-4">
-								<img src="img/team/3.jpg" alt=""
+								<img id="pc1_img0" alt=""
 									class="img-responsive img-rounded"
-									style="width: 300px; height: 300px;" data-action="zoom" />
+									style="width: 100%; height: 100%;" data-action="zoom" />
 							</div>
-							<div class="col-lg-8"></div>
+							<div class="col-lg-8">
+								<div class="table-responsive">
+									<table class="table">
+										<thead>
+										<tr class="active">
+											<th>中央处理器</th>
+											<th>核心架构</th>
+											<th>核心数量</th>
+											<th>显卡</th>
+											<th>显存</th>
+											<th>内存</th>
+											<th>内存类型</th>
+										</tr>
+										</thead>
+										<tbody>
+										<tr>
+											<td id="pc1_cpu_model"></td>
+											<td id="pc1_cpu_struct"></td>
+											<td id="pc1_cpu_core"></td>
+											<td id="pc1_gpu_model"></td>
+											<td id="pc1_gpu_capacity"></td>
+											<td id="pc1_memory_capacity"></td>
+											<td id="pc1_memory_type"></td>
+										<tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="table-responsive">
+									<table class="table">
+										<thead>
+										<tr class="active">
+											<th>硬盘</th>
+											<th>硬盘容量</th>
+											<th>屏幕尺寸</th>
+											<th>分辨率</th>
+											<th>屏幕类型</th>
+											<th>光驱</th>
+											<th>摄像头</th>		
+										</tr>
+										</thead>
+										<tbody>
+										<tr>
+											<td id="pc1_harddisk_type"></td>
+											<td id="pc1_harddisk_capacity"></td>
+											<td id="pc1_display_size"></td>
+											<td id="pc1_display_resolution"></td>
+											<td id="pc1_display_type"></td>
+											<td id="pc1_cd"></td>
+											<td id="pc1_camera"></td>
+										<tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="table-responsive">
+									<table class="table">
+										<thead>
+										<tr class="active">
+											<th>无线网卡</th>
+											<th>蓝牙</th>
+											<th>读卡器</th>
+											<th>USB</th>
+											<th>重量</th>
+											<th>三维</th>
+											<th>价格</th>
+										</tr>
+										</thead>
+										<tbody>
+										<tr>
+											<td id="pc1_wireless"></td>
+											<td id="pc1_bluetooth"></td>
+											<td id="pc1_cardreader"></td>
+											<td id="pc1_usb"></td>
+											<td id="pc1_weight"></td>
+											<td id="pc1_dimension"></td>
+											<td id="pc1_price"></td>
+										<tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
 						</div>
 						<div class="row" style="margin-top: 10px">
 							<div class="col-lg-1" style="margin-right: 15px">
-								<img src="img/team/3.jpg" alt=""
+								<img id="pc1_img1" alt=""
 									class="img-responsive img-rounded"
-									style="width: 70px; height: 70px;" />
+									style="width: 70px; height: 70px;" 
+									onclick="change(pc1_img0, document.getElementById(pc1_img1).src)"/>
 							</div>
 							<div class="col-lg-1" style="margin-right: 15px">
-								<img src="img/team/3.jpg" alt=""
+								<img id="pc1_img2" alt=""
 									class="img-responsive img-rounded"
-									style="width: 70px; height: 70px;" />
+									style="width: 70px; height: 70px;"
+									onclick="change(pc1_img0, document.getElementById(pc1_img2).src)" />
 							</div>
 							<div class="col-lg-1" style="margin-right: 15px">
-								<img src="img/team/3.jpg" alt=""
+								<img id="pc1_img3" alt=""
 									class="img-responsive img-rounded"
-									style="width: 70px; height: 70px;" />
+									style="width: 70px; height: 70px;" 
+									onclick="change(pc1_img0, document.getElementById(pc1_img3).src)"/>
 							</div>
-							<div class="col-lg-9"></div>
+							<div class="col-lg-9">
+								
+							</div>
 						</div>
 
 					</div>
@@ -599,13 +683,13 @@
 									<ul style="list-style: none;">
 										<li style="margin-bottom: 10px"><img src=<%=news1.getImg1()%>
 											alt="" class="img-responsive img-rounded"
-											style="width: 150px; height: 150px;" data-action="zoom" /></li>
+											style="width: 100%; height: 100%;" data-action="zoom" /></li>
 										<li style="margin-bottom: 10px"><img src=<%=news1.getImg2()%>
 											alt="" class="img-responsive img-rounded"
-											style="width: 150px; height: 150px;" data-action="zoom" /></li>
+											style="width: 100%; height: 100%;" data-action="zoom" /></li>
 										<li style="margin-bottom: 10px"><img src=<%=news1.getImg3()%>
 											alt="" class="img-responsive img-rounded"
-											style="width: 150px; height: 150px;" data-action="zoom" /></li>
+											style="width: 100%; height: 100%;" data-action="zoom" /></li>
 									</ul>
 								</div>
 								<div class="col-xs-9 col-md-9 col-sm-9">
@@ -637,13 +721,13 @@
 									<ul style="list-style: none;">
 										<li style="margin-bottom: 10px"><img src=<%=news2.getImg1()%>
 											alt="" class="img-responsive img-rounded"
-											style="width: 150px; height: 150px;" data-action="zoom" /></li>
+											style="width: 100%; height: 100%;" data-action="zoom" /></li>
 										<li style="margin-bottom: 10px"><img src=<%=news2.getImg2()%>
 											alt="" class="img-responsive img-rounded"
-											style="width: 150px; height: 150px;" data-action="zoom" /></li>
+											style="width: 100%; height: 100%;" data-action="zoom" /></li>
 										<li style="margin-bottom: 10px"><img src=<%=news2.getImg3()%>
 											alt="" class="img-responsive img-rounded"
-											style="width: 150px; height: 150px;" data-action="zoom" /></li>
+											style="width: 100%; height: 100%;" data-action="zoom" /></li>
 									</ul>
 								</div>
 								<div class="col-xs-9 col-md-9 col-sm-9">
@@ -675,13 +759,13 @@
 									<ul style="list-style: none;">
 										<li style="margin-bottom: 10px"><img src=<%=news3.getImg1()%>
 											alt="" class="img-responsive img-rounded"
-											style="width: 150px; height: 150px;" data-action="zoom" /></li>
+											style="width: 100%; height: 100%;" data-action="zoom" /></li>
 										<li style="margin-bottom: 10px"><img src=<%=news3.getImg2()%>
 											alt="" class="img-responsive img-rounded"
-											style="width: 150px; height: 150px;" data-action="zoom" /></li>
+											style="width: 100%; height: 100%;" data-action="zoom" /></li>
 										<li style="margin-bottom: 10px"><img src=<%=news3.getImg3()%>
 											alt="" class="img-responsive img-rounded"
-											style="width: 150px; height: 150px;" data-action="zoom" /></li>
+											style="width: 100%; height: 100%;" data-action="zoom" /></li>
 									</ul>
 								</div>
 								<div class="col-xs-9 col-md-9 col-sm-9">
@@ -723,47 +807,52 @@
 				<div class="col-lg-4 col-xs-4 col-md-4">
 					<h4 style="text-align: center;">中央处理器</h4>
 					<select id="cpu" name="cpu" class="form-control">
-						<option>任意</option>
+						<option value="">任意</option>
+						<option value="i7">i7</option>
 					</select>
 				</div>
 				<div class="col-lg-4 col-xs-4 col-md-4">
 					<h4 style="text-align: center;">显卡</h4>
-					<select id="cpu" name="cpu" class="form-control">
-						<option>任意</option>
+					<select id="gpu" name="gpu" class="form-control">
+						<option value="">任意</option>
+						<option value="Nvidia Geforce 710M">Nvidia Geforce 710M</option>
 					</select>
 				</div>
 				<div class="col-lg-4 col-xs-4 col-md-4">
 					<h4 style="text-align: center;">内存容量</h4>
-					<select id="cpu" name="cpu" class="form-control">
-						<option>任意</option>
+					<select id="ram" name="ram" class="form-control">
+						<option value="">任意</option>
+						<option value="4G">4G</option>
 					</select>
 				</div>
 			</div>
 			<div class="row" style="margin-bottom: 80px;">
 				<div class="col-lg-4 col-xs-4 col-md-4">
 					<h4 style="text-align: center;">硬盘容量</h4>
-					<select id="cpu" name="cpu" class="form-control">
-						<option>任意</option>
+					<select id="harddisk" name="harddisl" class="form-control">
+						<option value="">任意</option>
+						<option value="500G">500G</option>
 					</select>
 				</div>
 				<div class="col-lg-4 col-xs-4 col-md-4">
 					<h4 style="text-align: center;">尺寸</h4>
-					<select id="cpu" name="cpu" class="form-control">
-						<option>任意</option>
+					<select id="size" name="size" class="form-control">
+						<option value="">任意</option>
+						<option value="14">14</option>
 					</select>
 				</div>
 				<div class="col-lg-4 col-xs-4 col-md-4">
 					<h4 style="text-align: center;">价格</h4>
-					<select id="cpu" name="cpu" class="form-control">
-						<option>任意</option>
+					<select id="prize" name="prize" class="form-control">
+						<option value="">任意</option>
+						<option value="5000">5000-5999</option>
 					</select>
 				</div>
 			</div>
 			<div class="row">
 				<div class="wow bounceInUp" data-wow-delay="1.2s">
 					<button type="button" class="btn btn-primary btn-lg btn-block"
-						style="border-radius: 5px;" data-toggle="modal"
-						data-target="#AnswerModal">
+						style="border-radius: 5px;" onclick="find()">
 						<span style="font-family: Mirosoft Yahei; font-weight: bold;">
 							寻找属于你的它 </span>
 					</button>
@@ -793,7 +882,7 @@
 	</div>
 	<div class="wow bounceInDown" data-wow-delay="0.8s">
 		<div class="row" style="font-family: Microsoft YaHei">
-			<div class="col-lg-7 col-lg-offset-1">
+			<div class="col-lg-7 col-lg-offset-1 col-md-9 col-sm-9">
 				<table class="table table-hover table-responsive table-condensed">
 					<tbody>
 						<tr>
@@ -869,7 +958,7 @@
 					<a href="">5</a> <a href="">下一页</a>
 				</div>
 			</div>
-			<div class="col-lg-2 col-lg-offset-1" style="text-align: center">
+			<div class="col-lg-2 col-lg-offset-1 col-md-3 col-sm-3" style="text-align: center">
 				<button type="button" class="btn btn-primary btn-lg btn-block"
 					style="border-radius: 5px; width: 50%;" data-toggle="modal"
 					data-target="#AddBBSModal">
@@ -911,7 +1000,7 @@
 					<div class="boxed-grey">
 						<form id="contact-form" action="">
 							<div class="row">
-								<div class="col-md-5">
+								<div class="col-md-5 col-sm-5 col-lg-5">
 									<div class="form-group">
 										<label for="name">姓名</label> <input type="text"
 											class="form-control" id="name" placeholder="Enter Name"
@@ -936,7 +1025,7 @@
 										</select>
 									</div>
 								</div>
-								<div class="col-md-7">
+								<div class="col-md-5 col-sm-5 col-lg-5">
 									<div class="form-group">
 										<label for="name"> 信息</label>
 										<textarea name="message" id="message" class="form-control"
@@ -987,11 +1076,15 @@
 				'<style id="scrollbar-width"> .compensate-for-scrollbar{ margin-right:'
 						+ c + 'px } </style>');
 
-		$(document.body).css({
-			"overflow-x" : "hidden",
+		 $(document.body).css({
+			//"overflow-x" : "hidden",
 			"overflow-y" : "hidden"
-		});
-
+		}); 
+	
+		function change(imgId, imgSrc){
+			document.getElementById(imgId).src = imgSrc;
+		}
+		 
 		function search() {
 			$.ajax({
 				type : "POST",
@@ -1001,16 +1094,52 @@
 				},
 				dataType : "json",
 				success : function(data) {
-					    document.getElementById("pc1name").innerHTML=data[0].pcname;
-					    document.getElementById("pc1DetailModalLabal").innerHTML=data[0].pcname;
-					    document.getElementById("pc2name").innerHTML=data[1].pcname;
-					    document.getElementById("pc3name").innerHTML=data[2].pcname;
-					    document.getElementById("pc4name").innerHTML=data[3].pcname;
-					    document.getElementById("pc5name").innerHTML=data[4].pcname;
-					    document.getElementById("pc6name").innerHTML=data[5].pcname;
-					    document.getElementById("pc7name").innerHTML=data[6].pcname;
-					    document.getElementById("pc8name").innerHTML=data[7].pcname;
-					    document.getElementById("pc9name").innerHTML=data[8].pcname;				    
+					    document.getElementById("pc1name").innerHTML=data[0].pc_model;
+					    document.getElementById("pc1price").innerHTML=data[0].pc_model;
+					    document.getElementById("pc1DetailModalLabal").innerHTML=data[0].pc_model;
+					    document.getElementById("pc2name").innerHTML=data[1].pc_model;
+					    document.getElementById("pc3name").innerHTML=data[2].pc_model;
+					    document.getElementById("pc4name").innerHTML=data[3].pc_model;
+					    document.getElementById("pc5name").innerHTML=data[4].pc_model;
+					    document.getElementById("pc6name").innerHTML=data[5].pc_model;
+					    document.getElementById("pc7name").innerHTML=data[6].pc_model;
+					    document.getElementById("pc8name").innerHTML=data[7].pc_model;
+					    document.getElementById("pc9name").innerHTML=data[8].pc_model;				    
+				}
+			});
+			$("#AnswerModal").modal('show');
+		}
+		
+		function find() {
+			var cpu = document.getElementById("cpu").value;
+			var gpu = document.getElementById("gpu").value;
+			var ram = document.getElementById("ram").value;
+			var harddisk = document.getElementById("harddisk").value;
+			var size = document.getElementById("size").value;
+			var prize = document.getElementById("prize").value; 
+			$.ajax({
+				type : "POST",
+				url : "FindServlet",
+				data : {
+					cpu:cpu,
+					gpu:gpu,
+					ram:ram,
+					harddisk:harddisk,
+					size:size,
+					prize:prize 
+				},
+				dataType : "json",
+				success : function(data) {
+					document.getElementById("pc1name").innerHTML=data[0].pcname;
+				    document.getElementById("pc1DetailModalLabal").innerHTML=data[0].pcname;
+				    document.getElementById("pc2name").innerHTML=data[1].pcname;
+				    document.getElementById("pc3name").innerHTML=data[2].pcname;
+				    document.getElementById("pc4name").innerHTML=data[3].pcname;
+				    document.getElementById("pc5name").innerHTML=data[4].pcname;
+				    document.getElementById("pc6name").innerHTML=data[5].pcname;
+				    document.getElementById("pc7name").innerHTML=data[6].pcname;
+				    document.getElementById("pc8name").innerHTML=data[7].pcname;
+				    document.getElementById("pc9name").innerHTML=data[8].pcname;    
 				}
 			});
 			$("#AnswerModal").modal('show');

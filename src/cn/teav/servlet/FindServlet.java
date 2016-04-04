@@ -9,14 +9,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.sf.json.JSONArray;
 import cn.teav.dao.NewsDAO;
 import cn.teav.dao.PCDAO;
 import cn.teav.model.News;
+import cn.teav.model.PC;
 
-@WebServlet("/IndexServlet")
-public class IndexServlet extends HttpServlet {
-	private NewsDAO newsDAO = NewsDAO.getInstance();
+@WebServlet("/FindServlet")
+public class FindServlet extends HttpServlet {
 	private PCDAO pcDAO = PCDAO.getInstance();
+	private NewsDAO newsDAO = NewsDAO.getInstance();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -36,7 +38,30 @@ public class IndexServlet extends HttpServlet {
 			news = newslist.get(2);
 			req.setAttribute("news3", news);
 
-			req.getRequestDispatcher("/index.jsp").forward(req, resp);
+			String cpu = req.getParameter("cpu");
+			String gpu = req.getParameter("gpu");
+			String ram = req.getParameter("ram");
+			String harddisk = req.getParameter("harddisk");
+			String size = req.getParameter("size");
+			String prize = req.getParameter("prize");
+			int lprize = 0, rprize;
+			if (prize == "" || prize == null) {
+				rprize = 1000000;
+			} else {
+				lprize = Integer.parseInt(prize);
+				rprize = lprize + 999;
+			}
+
+			List<PC> pclist = pcDAO.getPCListByCondition(cpu, gpu, ram,
+					harddisk, size, lprize, rprize);
+
+			PC nullpc = PC.getDefaultPC();
+			while (pclist.size() < 9) {
+				pclist.add(nullpc);
+			}
+			JSONArray json = JSONArray.fromObject(pclist);
+			resp.getWriter().print(json.toString());
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
