@@ -15,8 +15,8 @@ import cn.teav.dao.PCDAO;
 import cn.teav.model.News;
 import cn.teav.model.PC;
 
-@WebServlet("/FindServlet")
-public class FindServlet extends HttpServlet {
+@WebServlet("/ShowPcDetailServlet")
+public class ShowPcDetailServlet extends HttpServlet {
 	private PCDAO pcDAO = PCDAO.getInstance();
 	private NewsDAO newsDAO = NewsDAO.getInstance();
 
@@ -38,27 +38,10 @@ public class FindServlet extends HttpServlet {
 			news = newslist.get(2);
 			req.setAttribute("news3", news);
 
-			String cpu = req.getParameter("cpu");
-			String gpu = req.getParameter("gpu");
-			String ram = req.getParameter("ram");
-			String harddisk = req.getParameter("harddisk");
-			String size = req.getParameter("size");
-			String price = req.getParameter("price");
-			int lprice = 0, rprice;
-			if (price == "" || price == null || price == "10000") {
-				rprice = 1000000;
-			} else {
-				lprice = Integer.parseInt(price);
-				rprice = lprice + 999;
-			}
+			String pc_model = req.getParameter("pc_model");
 
-			List<PC> pclist = pcDAO.getPCListByCondition(cpu, gpu, ram,
-					harddisk, size, lprice, rprice);
+			List<PC> pclist = pcDAO.getPCListByPc_model(pc_model);
 
-			PC nullpc = PC.getDefaultPC();
-			while (pclist.size() < 9) {
-				pclist.add(nullpc);
-			}
 			resp.setCharacterEncoding("UTF-8");
 			JSONArray json = JSONArray.fromObject(pclist);
 			resp.getWriter().print(json.toString());

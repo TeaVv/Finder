@@ -1,6 +1,7 @@
 package cn.teav.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -9,14 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cn.teav.dao.NewsDAO;
-import cn.teav.model.News;
+import net.sf.json.JSONArray;
+import cn.teav.dao.UserDAO;
+import cn.teav.model.User;
 
-@WebServlet("/IndexServlet")
-public class IndexServlet extends HttpServlet {
-	private NewsDAO newsDAO = NewsDAO.getInstance();
-
-	// private PCDAO pcDAO = PCDAO.getInstance();
+@WebServlet("/ShowUserDetailServlet")
+public class ShowUserDetailServlet extends HttpServlet {
+	private UserDAO userDAO = UserDAO.getInstance();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -28,15 +28,14 @@ public class IndexServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		try {
-			List<News> newslist = newsDAO.getNewsList();
-			News news = newslist.get(0);
-			req.setAttribute("news1", news);
-			news = newslist.get(1);
-			req.setAttribute("news2", news);
-			news = newslist.get(2);
-			req.setAttribute("news3", news);
+			String username = req.getParameter("username");
+			List<User> list = new ArrayList<>();
+			User user = userDAO.getUser(username);
+			list.add(user);
 
-			req.getRequestDispatcher("/index.jsp").forward(req, resp);
+			resp.setCharacterEncoding("UTF-8");
+			JSONArray json = JSONArray.fromObject(list);
+			resp.getWriter().print(json.toString());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

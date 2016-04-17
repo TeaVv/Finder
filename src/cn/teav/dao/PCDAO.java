@@ -26,6 +26,27 @@ public class PCDAO {
 	}
 
 	/**
+	 * 根据电脑型号查找PC
+	 * 
+	 * @return list集合，存放所有的PC，没有则返回空集
+	 * @throws SQLException
+	 */
+	public List<PC> getPCListByPc_model(String pc_model) throws SQLException {
+		List<PC> pclist = new ArrayList<>();
+		String sql = "select *" + " from pc where pc_model ='" + pc_model + "'";
+		try (Connection conn = DB.open();
+				PreparedStatement stmt = conn.prepareStatement(sql)) {
+			DB.setParam(stmt, new Object[] {});
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				pclist.add(convert(rs));
+			}
+			rs.close();
+		}
+		return pclist;
+	}
+
+	/**
 	 * 根据输入字符串查找PC
 	 * 
 	 * @return list集合，存放所有的PC，没有则返回空集

@@ -11,13 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONArray;
 import cn.teav.dao.NewsDAO;
-import cn.teav.dao.PCDAO;
 import cn.teav.model.News;
-import cn.teav.model.PC;
 
-@WebServlet("/SearchServlet")
-public class SearchServlet extends HttpServlet {
-	private PCDAO pcDAO = PCDAO.getInstance();
+@WebServlet("/NewsServlet")
+public class NewsServlet extends HttpServlet {
 	private NewsDAO newsDAO = NewsDAO.getInstance();
 
 	@Override
@@ -31,26 +28,10 @@ public class SearchServlet extends HttpServlet {
 			throws ServletException, IOException {
 		try {
 			List<News> newslist = newsDAO.getNewsList();
-			News news = newslist.get(0);
-			req.setAttribute("news1", news);
-			news = newslist.get(1);
-			req.setAttribute("news2", news);
-			news = newslist.get(2);
-			req.setAttribute("news3", news);
 
-			String SearchInput = req.getParameter("searchinput");
-
-			List<PC> pclist = pcDAO.getPCListBySearchInput(SearchInput);
-
-			PC nullpc = PC.getDefaultPC();
-
-			while (pclist.size() < 9) {
-				pclist.add(nullpc);
-			}
 			resp.setCharacterEncoding("UTF-8");
-			JSONArray json = JSONArray.fromObject(pclist);
+			JSONArray json = JSONArray.fromObject(newslist);
 			resp.getWriter().print(json.toString());
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

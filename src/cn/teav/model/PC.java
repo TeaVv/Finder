@@ -52,7 +52,6 @@ public class PC {
 		pc.setHarddisk_type("");
 		pc.setMemory_capacity("");
 		pc.setMemory_type("");
-		pc.setPc_model("");
 		pc.setUsb("");
 		pc.setWeight("");
 		pc.setWireless("");
